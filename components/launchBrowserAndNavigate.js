@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 //Please type the name of the file you want to edit here:
-const OnShapefileName = 'Extrude7';
+const OnShapefileName = 'Extrude8';
 
 
 
@@ -26,16 +26,9 @@ async function launchBrowserAndNavigateToDocument() {
     await newPage.type('input[name="password"].form-control', process.env.PASSWORD);
     console.log('Typed password successfully.');
 
-    // console.log(await newPage.$eval('input[name="email"].form-control', input => input.getBoundingClientRect()));
-    // console.log(await newPage.$eval('input[name="password"].form-control', input => input.getBoundingClientRect()));
-
     await newPage.click('button.btn.btn-primary.os-signin-button');
-    // console.log('Clicked on the sign-in button successfully.');
 
     console.log(await newPage.$eval('button.btn.btn-primary.os-signin-button', button => button.getBoundingClientRect()));
-
-    // await new Promise(resolve => setTimeout(resolve, 5000));
-    // console.log('Waited for 5 seconds.');
 
     await newPage.evaluate(() => {
         const thirdButton = document.querySelectorAll('.documents-filter-icon')[2];
@@ -47,8 +40,6 @@ async function launchBrowserAndNavigateToDocument() {
         }
     });
 
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-    // console.log('Waited for 2 seconds.');
 
     await newPage.evaluate(() => {
         const thirdButton = document.querySelectorAll('.documents-filter-icon')[2];
